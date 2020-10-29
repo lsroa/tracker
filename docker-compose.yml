@@ -1,0 +1,21 @@
+version: "3"
+services:
+  server:
+    build: "./backend/"
+    working_dir: /app/backend/
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/app/backend
+      - ./backend/node_modules:/app/backend/node_modules
+
+  client:
+    build: "./frontend/"
+    working_dir: /app/frontend/
+    ports:
+      - "3000:3000"
+    links:
+      - "server:api"
+    volumes:
+      - ./frontend:/app/frontend
+      - ./frontend/node_modules:/app/frontend/node_modules
