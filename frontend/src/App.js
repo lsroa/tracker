@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { get } from "axios";
+import { useEffect, useState } from "react"
+import styled from "styled-components"
+import { get } from "axios"
 
 const Container = styled.ul`
   padding: 20px;
@@ -9,19 +9,19 @@ const Container = styled.ul`
   justify-content: center;
   align-items: center;
   color: #eee;
-`;
+`
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([])
 
   const getUsers = async () => {
-    const res = await get("/users");
-    setUsers(res.data);
-  };
+    const res = await get("/users")
+    setUsers(res.data)
+  }
 
   useEffect(() => {
-    getUsers();
-  }, []);
+    getUsers()
+  }, [])
 
   return (
     <Container>
@@ -29,7 +29,7 @@ function App() {
         <li key={id}>{name}</li>
       ))}
     </Container>
-  );
+  )
 }
 
-export default App;
+export default App
